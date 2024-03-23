@@ -1,0 +1,16 @@
+#puzzle {
+    width: 50vw;
+    height: 50vw;
+    border: 1px solid #000;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.piece {
+    width: 25%;
+    height: 25%;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
