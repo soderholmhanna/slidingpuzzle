@@ -1,4 +1,16 @@
+const pieces = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
+// Fisher Yates shuffle function
+const shuffle = (array: number[]) => {
+  for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = array[i];
+      array[i] = array[j]
+      array[j] = temp;
+  }
+};
+
+shuffle(pieces);
 
 function App() {
 
@@ -6,21 +18,11 @@ function App() {
    <>
     <h1>Sliding puzzle</h1>
     <div id="puzzle">
-      <div className="piece">1</div>
-      <div className="piece">2</div>
-      <div className="piece">3</div>
-      <div className="piece">4</div>
-      <div className="piece">5</div>
-      <div className="piece">6</div>
-      <div className="piece">7</div>
-      <div className="piece">8</div>
-      <div className="piece">9</div>
-      <div className="piece">10</div>
-      <div className="piece">11</div>
-      <div className="piece">12</div>
-      <div className="piece">13</div>
-      <div className="piece">14</div>
-      <div className="piece">15</div>
+      {
+        pieces.map((piece, index) => {
+          return <div key={piece} className="piece">{piece}</div>
+        })
+      }
     </div>
    </>
   )
