@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
-import './index.css'
-import './puzzle.css'
+import './assets/index.css'
+import './assets/puzzle.css'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
