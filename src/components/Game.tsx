@@ -8,7 +8,7 @@ interface Props {
 const Game: React.FC<Props> = ({ onShuffle, pieces }) => {
   return (
     <div className="puzzle-container">
-    <h1>Sliding puzzle</h1>
+    <h1>Sliding Puzzle</h1>
     <div id="puzzle">
       {
         pieces.map((piece) => {

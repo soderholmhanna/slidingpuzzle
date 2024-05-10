@@ -23,10 +23,10 @@ function App() {
   }
 
   return (
-   <Game
-    onShuffle={handleClick}
-    pieces={pieces}
-   />
+    <Game
+      onShuffle={handleClick}
+      pieces={pieces}
+    />
   )
 }
 
