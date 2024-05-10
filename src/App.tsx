@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Game from "./components/Game";
 
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 
@@ -15,7 +16,6 @@ const shuffle = (array: number[]) => {
 
 
 function App() {
-
   const [pieces, setPieces] = useState(shuffle(numbers));  
 
   const handleClick = () => {
@@ -23,17 +23,10 @@ function App() {
   }
 
   return (
-   <div className="puzzle-container">
-    <h1>Sliding puzzle</h1>
-    <div id="puzzle">
-      {
-        pieces.map((piece) => {
-          return <div key={piece} className="piece">{piece}</div>
-        })
-      }
-    </div>
-    <button id="shuffle" onClick={handleClick}>Shuffle pieces</button>
-   </div>
+   <Game
+    onShuffle={handleClick}
+    pieces={pieces}
+   />
   )
 }
 
