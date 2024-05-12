@@ -1,17 +1,9 @@
 #puzzle {
-    width: 60vw;
+    width: 40vw;
+    height: 40vw;
     border: 1px solid #000;
     display: flex;
     flex-wrap: wrap;
-}
-
-.piece {
-    width: 11.95vw;
-    height: 11.95vw;
-    border: 1px solid red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .puzzle-container {
@@ -19,4 +11,13 @@
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
+}
+
+.piece {
+    width: 33%;
+    height: 33%;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
