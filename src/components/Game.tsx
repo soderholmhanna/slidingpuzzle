@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const shuffle = (array: number[]) => {
   const newArray = [...array];
@@ -42,7 +42,6 @@ const Game: React.FC<Props> = ({ blocks }) => {
       console.log("Empty piece is in column:", emptyPieceCol)
       return false;
     }
-      
   }
 
   const movePiece = (pieceIndex: number) => {
@@ -61,7 +60,33 @@ const Game: React.FC<Props> = ({ blocks }) => {
       console.log("Can't move piece:", pieceIndex)
       console.log(pieces)
     }
+
+    console.log(isSorted(pieces)); 
   };
+
+  // Sorting function credit: https://www.w3resource.com/javascript-exercises/fundamental/javascript-fundamental-exercise-188.php#:~:text=Calculate%20the%20ordering%20direction%20for,or%201%20(ascending%20order).
+  const isSorted = (arr: number[]) => {
+    let direction = -(arr[0] - arr[1]);
+  
+    for (let [i, val] of arr.entries()) {
+      direction = !direction ? -(arr[i - 1] - arr[i]) : direction;
+  
+      if (i === arr.length - 1) return !direction ? 0 : direction;
+      else if ((val - arr[i + 1]) * direction > 0) return 0;
+    }
+  };
+
+  useEffect(() => {
+    console.log(isSorted(pieces))
+    if (isSorted(pieces)) {
+      setTimeout(() => {
+        alert("FINISHED!!!")
+      }, 100);
+    }
+  }, pieces)
+  
+  // Test cases to check if arrays are sorted
+  console.log(isSorted(pieces)); // 1 (ascending order)
   
   const handleShuffle = () => {
     setPieces(shuffle(pieces))
