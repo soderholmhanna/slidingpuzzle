@@ -16,9 +16,10 @@ interface Props {
 }
 
 const Game: React.FC<Props> = ({ blocks }) => {
-  const emptyBlockValue = 9;
-
   const [pieces, setPieces] = useState<number[]>(shuffle(blocks));
+  const [wins, setWins] = useState<number>(0);
+
+  const emptyBlockValue = 9;
 
   const canMove = (pieceIndex: number): boolean => {
     const pieceRow = Math.floor(pieceIndex / 3);
@@ -79,9 +80,11 @@ const Game: React.FC<Props> = ({ blocks }) => {
       console.log("Pieces are not sorted")
     } else if (isSorted(pieces) === 1) {
       console.log("Pieces are sorted")
+      console.log("Number of wins:", wins)
       setTimeout(() => {
         alert("FINISHED!!!")
       }, 100);
+      setWins(wins + 1);
     }
   }, pieces)
   
