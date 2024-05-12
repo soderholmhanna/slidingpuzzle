@@ -4,6 +4,7 @@
     border: 1px solid #000;
     display: flex;
     flex-wrap: wrap;
+    padding: 1px;
 }
 
 .puzzle-container {
@@ -14,10 +15,17 @@
 }
 
 .piece {
-    width: 33%;
-    height: 33%;
-    border: 1px solid red;
+    width: 33.3%;
+    height: 33.3%;
+    background-color: red;
+    border-radius: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#empty-piece {
+    background-color: #FFF; 
 }
