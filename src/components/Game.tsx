@@ -16,7 +16,7 @@ interface Props {
 }
 
 const Game: React.FC<Props> = ({ blocks }) => {
-  const [emptyBlockValue, setEmptyBlockValue] = useState<number>(9);
+  const emptyBlockValue = 9;
 
   const [pieces, setPieces] = useState<number[]>(shuffle(blocks));
 
@@ -51,17 +51,14 @@ const Game: React.FC<Props> = ({ blocks }) => {
       const emptyIndex = pieces.indexOf(emptyBlockValue);
       console.log("Empty block index is:", emptyIndex)
 
-
       const newPieces = [...pieces];
       newPieces[emptyIndex] = pieces[pieceIndex];
       newPieces[pieceIndex] = emptyBlockValue;
       setPieces(newPieces);
+
     } else {
       console.log("Can't move piece:", pieceIndex)
-      console.log(pieces)
     }
-
-    console.log(isSorted(pieces)); 
   };
 
   // Sorting function credit: https://www.w3resource.com/javascript-exercises/fundamental/javascript-fundamental-exercise-188.php#:~:text=Calculate%20the%20ordering%20direction%20for,or%201%20(ascending%20order).
@@ -77,16 +74,16 @@ const Game: React.FC<Props> = ({ blocks }) => {
   };
 
   useEffect(() => {
-    console.log(isSorted(pieces))
-    if (isSorted(pieces)) {
+
+    if (isSorted(pieces) !== 1) {
+      console.log("Pieces are not sorted")
+    } else if (isSorted(pieces) === 1) {
+      console.log("Pieces are sorted")
       setTimeout(() => {
         alert("FINISHED!!!")
       }, 100);
     }
   }, pieces)
-  
-  // Test cases to check if arrays are sorted
-  console.log(isSorted(pieces)); // 1 (ascending order)
   
   const handleShuffle = () => {
     setPieces(shuffle(pieces))
